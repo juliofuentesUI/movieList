@@ -4,17 +4,24 @@
   "description": "MOvie List optional assignment",
   "main": "index.js",
   "scripts": {
-    "start": "",
+    "build": "webpack --w",
+    "start": "live-server ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Julio Fuentes",
   "license": "ISC",
   "dependencies": {
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "live-server": "^1.2.1",
     "node": "^12.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "webpack": "^4.35.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "^8.0.6",
+    "webpack-cli": "^3.3.5"
   }
 }
