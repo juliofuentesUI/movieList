@@ -1,0 +1,20 @@
+{
+  "name": "movie_list",
+  "version": "1.0.0",
+  "description": "MOvie List optional assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Julio Fuentes",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^12.4.0",
+    "webpack": "^4.35.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "babel-loader": "^8.0.6"
+  }
+}
