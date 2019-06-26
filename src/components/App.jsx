@@ -9,6 +9,7 @@ class App extends React.Component {
         this.state = {
            movies: Movies,
            currentQuery: '',
+           movieToAdd: '',
            result: ''
         }
 
@@ -17,11 +18,16 @@ class App extends React.Component {
         this.addMovie = this.addMovie.bind(this);
     }
 
-    addMovie(movie) {
+    addMovie() {
+        //EXTRACT THE MOVIETOADD VARIABLE FIRST.
+        //Cannot modify state directly, must make a copy and push
+        var currentMovie = {};
+        currentMovie.title = this.state.movieToAdd;
         var moviesCopy = [...this.state.movies];
-        moviesCopy.push(movie);
+        moviesCopy.push(currentMovie);
         this.setState({
-            movies: moviesCopy
+            movies: moviesCopy,
+            movieToAdd: ''
         })
     }
 
@@ -31,31 +37,43 @@ class App extends React.Component {
         for (var value of this.state.movies) {
             if (value.title.toLowerCase().includes(this.state.currentQuery.toLowerCase())) {
                 this.setState({
-                    result: value.title
+                    result: value.title,
+                    currentQuery: ''
                 })
             }
         }
     }
 
-    queryHandler(event) {
-        // event.preventDefault();
-        // debugger
+    queryHandler({target}) {
+        //this handler is being used by both AddMovieBar and SearchBar
+        var {name, value} = target;
         this.setState({
-            currentQuery: event.target.value
+            [name]: value
         })
         console.log('i ran');
         //for every keystroke, update current Query state
     }
 
     render() {
+
         return (
             <div>
                 <SearchBar currentQuery={this.state.currentQuery} 
                         queryHandler={this.queryHandler}
                         submitHandler={this.submitHandler}
                        />  
-                <AddMovieBar addMovie={this.addMovie}/>
+                <AddMovieBar movieToAdd={this.state.movieToAdd} queryHandler={this.queryHandler} addMovie={this.addMovie}/>
                 <p>{this.state.result}</p>
+                {/* Youre gonna put in MovieList in here */}
+                {/* And pass into the movies array */}
+                <ul id="movieList">
+                    {this.state.movies.map((movie, index) => {
+                        //this should prolly lead to a movieListEntry Component
+                        return (
+                            <li key={movie.title}>{movie.title}</li>
+                        )
+                    })}
+                </ul>
                 <div>Welcome to Movie List!</div>
             </div>
         )
