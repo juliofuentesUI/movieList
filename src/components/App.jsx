@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import Movies from '../data/exampleVideoData.js';
 import SearchBar from './SearchBar.jsx';
 import AddMovieBar from './AddMovieBar.jsx';
+import MovieList from './MovieList.jsx';
 
 class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-           movies: Movies,
+           movies: [],
            currentQuery: '',
            movieToAdd: '',
            result: ''
@@ -66,14 +67,7 @@ class App extends React.Component {
                 <p>{this.state.result}</p>
                 {/* Youre gonna put in MovieList in here */}
                 {/* And pass into the movies array */}
-                <ul id="movieList">
-                    {this.state.movies.map((movie, index) => {
-                        //this should prolly lead to a movieListEntry Component
-                        return (
-                            <li key={movie.title}>{movie.title}</li>
-                        )
-                    })}
-                </ul>
+                <MovieList movieList={this.state.movies}/>
                 <div>Welcome to Movie List!</div>
             </div>
         )

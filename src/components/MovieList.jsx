@@ -6,7 +6,9 @@ import MovieListEntry from './MovieListEntry.jsx';
 var MovieList = (props) => {
     return (
         <ul>
-            <MovieListEntry/> 
+           {props.movieList.map((movie, index) => {
+                return <MovieListEntry key={movie.title} movie={movie.title}/> 
+           })} 
         </ul>
     )
 }
