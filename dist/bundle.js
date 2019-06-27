@@ -297,7 +297,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar movies = [\n    {title: 'Mean Girls'},\n    {title: 'Hackers'},\n    {title: 'The Grey'},\n    {title: 'Sunshine'},\n    {title: 'Ex Machina'},\n  ];\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (movies);\n\n//# sourceURL=webpack:///./src/data/exampleVideoData.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nvar movies = [{\n  title: 'Mean Girls'\n}, {\n  title: 'Hackers'\n}, {\n  title: 'The Grey'\n}, {\n  title: 'Sunshine'\n}, {\n  title: 'Ex Machina'\n}];\n/* harmony default export */ __webpack_exports__[\"default\"] = (movies);\n\n//# sourceURL=webpack:///./src/data/exampleVideoData.js?");
 
 /***/ }),
 
